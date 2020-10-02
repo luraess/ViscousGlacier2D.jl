@@ -10,6 +10,7 @@ This repository contains various Pseudo-Transient (PT) routines with application
 * [Script list](#script-list)
 * [Usage](#usage)
 * [Output](#output)
+* [To-Do](#to-do)
 
 
 ## Script list
@@ -79,6 +80,17 @@ julia>
 
 ## Output
 The output of running the `viscous_gl2D_nondim.jl` script is following
-
 ![Viscous 2D full Stokes flow (2D glacier) with stress free surface](docs/fig_viscous_gl2D_nondim.png)
 
+
+## To-Do
+A non-exhaustive list of potential future next steps:
+- complete the README
+  - with references and cross-refs
+  - further links to GPU-related computing, Julia-related computing, to stencil-based HPC Julia modules and distributed memory parallelisation Julia modules
+- add more code examples
+- add some simple visualisation scripts
+- certainly more to come... stay tuned
+
+### Contact, suggestions
+Ludovic Räss (ludovic.rass@gmail.com)
