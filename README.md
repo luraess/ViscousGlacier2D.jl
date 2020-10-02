@@ -1,5 +1,5 @@
-# PseudoTransientExamples
-Concise and multi-[CPU / GPU]-ready iterative PDE solvers for Earth-science applications and beyond.
+# PseudoTransientSolvers
+Concise and multi-[CPU/GPU]-ready iterative PDE solvers for Earth-science applications and beyond; examples.
 
 
 ## Description
