@@ -54,7 +54,7 @@ using PyPlot, Statistics
 	(Xp,  Yp ) = (X2r[1:st:end,1:st:end], Y2r[1:st:end,1:st:end])
 	(Vxp, Vyp) = (0.5*(Vx[1:st:end-1,1:st:end  ]+Vx[2:st:end,1:st:end]), 0.5*(Vy[1:st:end  ,1:st:end-1]+Vy[1:st:end,2:st:end]))
 	subplot(311), pcolor(X2r,Y2r, 1e-3*Pt, shading="auto"), plt.axis("off"), plt.title("pressure [kPa]"), plt.colorbar(fraction=0.02, pad=0.03)
-	                     quiver(Xp, Yp, Vxp, Vyp, pivot="mid", color="white")
+	              quiver(Xp, Yp, Vxp, Vyp, pivot="mid", color="white")
 	subplot(312), pcolor(X2r,Y2r, s2d*Vx[2:end,:], shading="auto"), plt.axis("off"), plt.title("Vel-x [m/d]"), plt.colorbar(fraction=0.02, pad=0.03)
 	subplot(313), pcolor(X2r,Y2r, s2d*Vy[:,2:end], shading="auto"), plt.axis("off"), plt.title("Vel-y [m/d]"), plt.colorbar(fraction=0.02, pad=0.03)
 	return
