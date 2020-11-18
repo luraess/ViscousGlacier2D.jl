@@ -27,7 +27,7 @@ The keywords in the code naming stand for:
 
 
 ## Usage
-If not stated otherwise, all the routines are written in Julia and can be executed from the REPL. Output is produced using [PyPlot.jl](https://github.com/JuliaPy/PyPlot.jl) requiring a valid and on `PATH` python (+ matplotlib) install.
+If not stated otherwise, all the routines are written in Julia and can be executed from the REPL. Output is produced using [PyPlot.jl] requiring a valid and on `PATH` python (+ matplotlib) install.
 
 Example running the `viscous_gl2D_nondim.jl` routine.
 
@@ -94,3 +94,7 @@ A non-exhaustive list of potential future next steps:
 
 ### Contact, suggestions
 Ludovic Räss (ludovic.rass@gmail.com)
+
+
+[CUDA.jl]: https://github.com/JuliaGPU/CUDA.jl
+[PyPlot.jl]: https://github.com/JuliaPy/PyPlot.jl
