@@ -14,11 +14,12 @@ This repository contains various Pseudo-Transient (PT) routines with application
 
 
 ## Script list
-The [/scripts](/scripts/) folder contains various PT routines. Currently, the routines are
-- `viscous_gl2D.jl`
-- `viscous_gl2D_gpu.jl`
-- `viscous_gl2D_nondim.jl`
-- `viscous_gl2D_nondim_gpu.jl`
+The [/scripts](/scripts/) folder contains various PT routines grouped into subprojects. Currently, the subprojects and correpsonding routines are
+- [/scripts/viscous_gl2D](/scripts/viscous_gl2D/)
+  - `viscous_gl2D.jl`
+  - `viscous_gl2D_gpu.jl`
+  - `viscous_gl2D_nondim.jl`
+  - `viscous_gl2D_nondim_gpu.jl`
 
 The keywords in the code naming stand for:
 - viscous_gl2D: 2D viscous (full) Stokes with linear shear viscosity (scalar)
