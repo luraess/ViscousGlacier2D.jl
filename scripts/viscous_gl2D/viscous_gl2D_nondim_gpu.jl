@@ -34,9 +34,9 @@ using CUDA, PyPlot, Statistics
 	τ_xy    = CUDA.zeros(Float64, nx-1,ny-1) 
 	# action - iteration loop
 	for iτ = 1:niτ
-	    # pressure and stress
-	    ∇V    .= diff(Vx,dims=1)./dx .+ diff(Vy,dims=2)./dy      
-	    Pt    .= Pt .- ∇V.*dτp    
+		# pressure and stress
+		∇V    .= diff(Vx,dims=1)./dx .+ diff(Vy,dims=2)./dy      
+		Pt    .= Pt .- ∇V.*dτp    
 		σ_xx  .= 2.0*μ.*(diff(Vx,dims=1)./dx .- 1/3*∇V) .- Pt
 		σ_yy  .= 2.0*μ.*(diff(Vy,dims=2)./dy .- 1/3*∇V) .- Pt
 		τ_xy  .= μ.*(diff(Vx[2:end-1,:],dims=2)./dy .+ diff(Vy[:,2:end-1],dims=1)./dx)
