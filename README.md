@@ -93,9 +93,5 @@ A non-exhaustive list of potential future next steps:
 - add some simple visualisation scripts
 - certainly more to come... stay tuned
 
-### Contact, suggestions
-Ludovic Räss (ludovic.rass@gmail.com)
-
-
 [CUDA.jl]: https://github.com/JuliaGPU/CUDA.jl
 [PyPlot.jl]: https://github.com/JuliaPy/PyPlot.jl
