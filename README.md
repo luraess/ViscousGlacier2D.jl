@@ -5,7 +5,8 @@ Concise and CPU and GPU iterative Stokes solvers for viscous flow - 2D glacier e
 ## Description
 This repository contains GPU and CPU implementations of a 2D Stokes solver to resolve glacier flow on an inclined plane with a stress-free surface. The routines exemplify the implementation of a fast and concise (60 lines of code) iterative solving strategy referred to as Pseudo-Transient. The core of the Pseudo-Transient approach relies in using physics-motivated transient terms within differential equations in order to iteratively converge to an accurate solution.
 
-The routines relate to a seminar on _"Simply solving PDEs"_. Slide compilation is accessible [here](#seminar-presentation).
+The routines relate to a seminar on _"Simply solving PDEs"_. The seminar presentation is accessible [here](#seminar-presentation). Further material relating to the pseudo-transient method and pseudo-transient solvers can be found [here](https://ptsolvers.github.io).
+
 
 ## Content
 * [Script list](#script-list)
@@ -83,7 +84,7 @@ The output of running the `viscous_gl2D_nondim.jl` script is following
 ![Viscous 2D full Stokes flow (2D glacier) with stress free surface](docs/fig_viscous_gl2D_nondim.png)
 
 ## Questions and comments
-Contact me or open an issue if you have any questions or comments about the presented material.
+Contact me or open an [issue](https://github.com/luraess/ViscousGlacier2D.jl/issues) if you have any questions or comments about the presented material.
 
 ## Seminar presentation
 
