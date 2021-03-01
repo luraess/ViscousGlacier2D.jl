@@ -1,4 +1,4 @@
-using PyPlot, Statistics
+using CUDA, PyPlot, Statistics
 # (c) Ludovic Raess (ludovic.rass@gmail.com)
 @views function viscous_glacier2D()
 	# physics - scales
@@ -23,15 +23,15 @@ using PyPlot, Statistics
 	(Xc2,Yc2) = ([x for x=xc,y=yc], [y for x=xc,y=yc])
 	(X2r,Y2r) = (Xc2*cosd(α) - sind(α)*Yc2, Xc2*sind(α) + cosd(α)*Yc2)
 	# initial conditions
-	Pt      = zeros(Float64, nx  ,ny  )
-	∇V      = zeros(Float64, nx  ,ny  )
-	Vx      = zeros(Float64, nx+1,ny  )
-	Vy      = zeros(Float64, nx  ,ny+1) 
-	dVxdτ   = zeros(Float64, nx-1,ny-2)
-	dVydτ   = zeros(Float64, nx-2,ny-1)
-	σ_xx    = zeros(Float64, nx  ,ny  )
-	σ_yy    = zeros(Float64, nx  ,ny  )
-	τ_xy    = zeros(Float64, nx-1,ny-1)  
+	Pt      = CUDA.zeros(Float64, nx  ,ny  )
+	∇V      = CUDA.zeros(Float64, nx  ,ny  )
+	Vx      = CUDA.zeros(Float64, nx+1,ny  )
+	Vy      = CUDA.zeros(Float64, nx  ,ny+1) 
+	dVxdτ   = CUDA.zeros(Float64, nx-1,ny-2)
+	dVydτ   = CUDA.zeros(Float64, nx-2,ny-1)
+	σ_xx    = CUDA.zeros(Float64, nx  ,ny  )
+	σ_yy    = CUDA.zeros(Float64, nx  ,ny  )
+	τ_xy    = CUDA.zeros(Float64, nx-1,ny-1) 
 	# action - iteration loop
 	for iτ = 1:niτ
 		# pressure and stress
@@ -59,10 +59,10 @@ using PyPlot, Statistics
 	st = 4; s2d = 60*60*24
 	(Xp,  Yp ) = (X2r[1:st:end,1:st:end], Y2r[1:st:end,1:st:end])
 	(Vxp, Vyp) = (0.5*(Vx[1:st:end-1,1:st:end  ]+Vx[2:st:end,1:st:end]), 0.5*(Vy[1:st:end  ,1:st:end-1]+Vy[1:st:end,2:st:end]))
-	subplot(311), pcolor(x̂*X2r,x̂*Y2r, 1e-3*p̂*Pt, shading="auto"), plt.axis("off"), plt.title("pressure [kPa]"), plt.colorbar(fraction=0.02, pad=0.03)
+	subplot(311), pcolor(x̂*X2r,x̂*Y2r, 1e-3*p̂*Array(Pt)), plt.axis("off"), plt.title("pressure [kPa]"), plt.colorbar(fraction=0.02, pad=0.03)
 	quiver(x̂*Xp, x̂*Yp, v̂*Vxp, v̂*Vyp, pivot="mid", color="white")
-	subplot(312), pcolor(x̂*X2r,x̂*Y2r, s2d*v̂*Vx[2:end,:], shading="auto"), plt.axis("off"), plt.title("Vel-x [m/d]"), plt.colorbar(fraction=0.02, pad=0.03)
-	subplot(313), pcolor(x̂*X2r,x̂*Y2r, s2d*v̂*Vy[:,2:end], shading="auto"), plt.axis("off"), plt.title("Vel-y [m/d]"), plt.colorbar(fraction=0.02, pad=0.03)
+	subplot(312), pcolor(x̂*X2r,x̂*Y2r, s2d*v̂*Array(Vx[2:end,:])), plt.axis("off"), plt.title("Vel-x [m/d]"), plt.colorbar(fraction=0.02, pad=0.03)
+	subplot(313), pcolor(x̂*X2r,x̂*Y2r, s2d*v̂*Array(Vy[:,2:end])), plt.axis("off"), plt.title("Vel-y [m/d]"), plt.colorbar(fraction=0.02, pad=0.03)
 	return
 end
 viscous_glacier2D()

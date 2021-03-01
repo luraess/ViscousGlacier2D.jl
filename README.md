@@ -1,34 +1,34 @@
-# PseudoTransientSolvers
-Concise and multi-[CPU/GPU]-ready iterative PDE solvers for Earth-science applications and beyond; examples.
+# ViscousGlacier2D
+Concise and CPU and GPU iterative Stokes solvers for viscous flow - 2D glacier examples.
 
 
 ## Description
-This repository contains various Pseudo-Transient (PT) routines with application to Earth-sciences (glaciology and subsurface processes). These routines exemplify the implementation of a fast and concise (60 lines of code) iterative solving strategy referred to as Pseudo-Transient. The core of the Pseudo-Transient approach relies in using physics-motivated transient terms within differential equations in order to iteratively converge to an accurate solution.
+This repository contains GPU and CPU implementations of a 2D Stokes solver to resolve glacier flow on an inclined plane with a stress-free surface. The routines exemplify the implementation of a fast and concise (60 lines of code) iterative solving strategy referred to as Pseudo-Transient. The core of the Pseudo-Transient approach relies in using physics-motivated transient terms within differential equations in order to iteratively converge to an accurate solution.
 
+The routines relate to a seminar on _"Simply solving PDEs"_. Slide compilation is accessible [here](#seminar-presentation).
 
 ## Content
 * [Script list](#script-list)
 * [Usage](#usage)
 * [Output](#output)
-* [To-Do](#to-do)
+* [Questions and comments](#questions-and-comments)
+* [Seminar presentation](#seminar-presentation)
 
 
 ## Script list
-The [/scripts](/scripts/) folder contains various PT routines grouped into subprojects. Currently, the subprojects and correpsonding routines are
-- [/scripts/viscous_gl2D](/scripts/viscous_gl2D/)
-  - `viscous_gl2D.jl`
-  - `viscous_gl2D_gpu.jl`
-  - `viscous_gl2D_nondim.jl`
-  - `viscous_gl2D_nondim_gpu.jl`
+The [/scripts](/scripts/) folder contains the following PT routines:
+- [`viscous_gl2D.jl`](scripts/viscous_gl2D.jl)
+- [`viscous_gl2D_gpu.jl`](scripts/viscous_gl2D_gpu.jl)
+- [`viscous_gl2D_nondim.jl`](scripts/viscous_gl2D_nondim.jl)
+- [`viscous_gl2D_nondim_gpu.jl`](scripts/viscous_gl2D_nondim_gpu.jl)
 
 The keywords in the code naming stand for:
-- viscous_gl2D: 2D viscous (full) Stokes with linear shear viscosity (scalar)
 - gpu: Nvidia GPU ready routines using the [CUDA.jl] package
 - nondim: non-dimensional version of the code, using natural scaling
 
 
 ## Usage
-If not stated otherwise, all the routines are written in Julia and can be executed from the REPL. Output is produced using [PyPlot.jl] requiring a valid and on `PATH` python (+ matplotlib) install.
+The routines are written in [Julia] and can be executed from the REPL. Output is produced using [PyPlot.jl] requiring a valid and on `PATH` python (+ matplotlib) install.
 
 Example running the `viscous_gl2D_nondim.jl` routine.
 
@@ -36,7 +36,7 @@ Example running the `viscous_gl2D_nondim.jl` routine.
 ```sh
 % julia --project
 ```
-2. Activate and instantiate the environment
+2. ENter package mode `]` and instantiate the environment
 ```julia-repl
                _
    _       _ _(_)_     |  Documentation: https://docs.julialang.org
@@ -47,22 +47,21 @@ Example running the `viscous_gl2D_nondim.jl` routine.
  _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
 |__/                   |
 
-julia> 
+julia>
 
-(PseudoTransientExamples) pkg> instantiate
+(ViscousGlacier2D) pkg> add instantiate
 
-(PseudoTransientExamples) pkg> st
-Status `~/Documents/git/github/PseudoTransientExamples/Project.toml`
+(ViscousGlacier2D) pkg> st
+Status `~/Documents/git/github/ViscousGlacier2D/Project.toml`
   [d330b81b] PyPlot v2.9.0
-  [10745b16] Statistics
 
-(PseudoTransientExamples) pkg> 
+(ViscousGlacier2D) pkg> 
 
 julia> 
 ```
 3. Run the script
 ```julia-repl
-julia> include("viscous_gl2D_nondim.jl")
+julia> include("scripts/viscous_gl2D_nondim.jl")
 error = 0.007844763087162187
 error = 0.0035814871757943543
 error = 0.0005235773871451197
@@ -83,15 +82,14 @@ julia>
 The output of running the `viscous_gl2D_nondim.jl` script is following
 ![Viscous 2D full Stokes flow (2D glacier) with stress free surface](docs/fig_viscous_gl2D_nondim.png)
 
+## Questions and comments
+Contact me or open an issue if you have any questions or comments about the presented material.
 
-## To-Do
-A non-exhaustive list of potential future next steps:
-- complete the README
-  - with references and cross-refs
-  - further links to GPU-related computing, Julia-related computing, to stencil-based HPC Julia modules and distributed memory parallelisation Julia modules
-- add more code examples
-- add some simple visualisation scripts
-- certainly more to come... stay tuned
+## Seminar presentation
 
+![Simply solving PDEs](docs/slides.png)
+
+
+[Julia]: https://julialang.org
 [CUDA.jl]: https://github.com/JuliaGPU/CUDA.jl
 [PyPlot.jl]: https://github.com/JuliaPy/PyPlot.jl
