@@ -1,5 +1,5 @@
 # ViscousGlacier2D
-Concise and CPU and GPU iterative Stokes solvers for viscous flow - 2D glacier examples.
+Concise CPU and GPU iterative Stokes solvers for viscous flow - 2D glacier examples.
 
 
 ## Description
