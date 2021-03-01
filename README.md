@@ -50,7 +50,9 @@ Example running the `viscous_gl2D_nondim.jl` routine.
 
 julia>
 
-(ViscousGlacier2D) pkg> add instantiate
+(ViscousGlacier2D) pkg> activate .
+
+(ViscousGlacier2D) pkg> instantiate
 
 (ViscousGlacier2D) pkg> st
 Status `~/Documents/git/github/ViscousGlacier2D/Project.toml`
