@@ -37,8 +37,8 @@ Example running the `viscous_gl2D_nondim.jl` routine.
 ```sh
 % julia --project
 ```
-2. ENter package mode `]` and instantiate the environment
-```julia-repl
+2. Enter package mode `]` and instantiate the environment
+```julia
                _
    _       _ _(_)_     |  Documentation: https://docs.julialang.org
   (_)     | (_) (_)    |
@@ -63,7 +63,7 @@ Status `~/Documents/git/github/ViscousGlacier2D/Project.toml`
 julia> 
 ```
 3. Run the script
-```julia-repl
+```julia
 julia> include("scripts/viscous_gl2D_nondim.jl")
 error = 0.007844763087162187
 error = 0.0035814871757943543
